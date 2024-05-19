@@ -1,0 +1,34 @@
+.image-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .upload-label {
+    margin-bottom: 10px;
+    color:rgb(21, 170, 21); /* Light green color for label text */
+    font-weight: bold;
+  }
+  
+  .file-input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid rgb(21, 170, 21); /* Light green border for input */
+    border-radius: 5px;
+  }
+  
+  .submit-button {
+    padding: 10px 20px;
+    background-color: rgb(21, 170, 21); /* Light green background color for button */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+  }
+  
+  .submit-button:hover {
+    background-color: #64dd17; /* Darker shade of green on hover */
+  }
+  

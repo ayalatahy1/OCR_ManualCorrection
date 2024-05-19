@@ -5,7 +5,7 @@ import Getimagetext from './getimagetext';
 test("test the form appears", ()=>{
 
     render(<Getimagetext/>);
-    const inputElement= screen.getByLabelText('Image to convert');
+    const inputElement= screen.getByLabelText('Image To Convert');
     const button= screen.getByText('Submit');
     expect(inputElement).toBeInTheDocument();
     expect(button).toBeInTheDocument();

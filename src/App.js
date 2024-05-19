@@ -9,6 +9,7 @@ import axios from 'axios';
 function App() {
   const [image,setImage]=useState(null);
   const [text, setText]=useState('');
+  const [text2, setText2]=useState('');
   const [name,setName]=useState('');
   const [suggestion,setSuggestion]=useState('');
 
@@ -36,11 +37,12 @@ function App() {
   }
   return (
     <div className="App">
-      <Getimagetext setText={setText} setImage={setImage} setName={setName}/>
+      <div className="background-image"></div>
+      <Getimagetext setText={setText} setText2={setText2} setImage={setImage} setName={setName}/>
       <div style={{ display: 'flex', alignItems: 'center', marginTop: '20px' }}>
           {image && (
             <div>
-              <h2>Uploaded Image:</h2>
+              <h2 style={{ color: 'rgb(21, 170, 21)' }} >Uploaded Image:</h2>
               <img src={image && URL.createObjectURL(image)} alt="Uploaded" style={{ maxWidth: '600px' }} />
             </div>
           )}
@@ -48,16 +50,24 @@ function App() {
           <div>
               {text && (
                 <div>
-                  <h2>Tesseract Text:</h2>
-                  <p contentEditable={true} onBlur={(e) => setText(e.target.innerText)}>{text}</p>
-                  <button onClick={handleClick}>Save</button>
-                  <button onClick={handleSuggestion}>Suggestions</button>
+                  <h2 style={{ color: 'rgb(21, 170, 21)' }}>Tesseract Text:</h2>
+                  <p contentEditable={true} onBlur={(e) => setText(e.target.innerText)} >{text}</p>
+                  <button className="App-button"onClick={handleClick}>Save</button>
+                  <button className="App-button" onClick={handleSuggestion}>Suggestions</button>
+                </div>
+              )}
+              {text2 && (
+                <div>
+                  <h2 style={{ color: 'rgb(21, 170, 21)' }}>Paddle Text:</h2>
+                  <p contentEditable={true} onBlur={(e) => setText2(e.target.innerText)} >{text2}</p>
+                  <button className="App-button"onClick={handleClick}>Save</button>
+                  <button className="App-button" onClick={handleSuggestion}>Suggestions</button>
                 </div>
               )}
               {suggestion && (
                 <div>
-                  <h2>GPT-3.5-turbo Suggestions:</h2>
-                  <p>{suggestion}</p>
+                  <h2 style={{ color: 'rgb(21, 170, 21)' }}>GPT-3.5-turbo Suggestions:</h2>
+                  <p className="App-paragraph">{suggestion}</p>
                 </div>
               )}
         </div>

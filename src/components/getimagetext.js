@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from "axios";
+import './getimagetext.css';
 
-function Getimagetext({setText,setImage,setName}){
+function Getimagetext({setText,setText2,setImage,setName}){
 
 
 const HandleChange= (event)=>{ 
@@ -22,9 +23,18 @@ const HandleSubmit=async (event)=>{
         'Content-Type': 'multipart/form-data'
         }
     });
-    
       
     setText(response.data.text);
+    
+    const response2 = await axios.post('http://127.0.0.1:5000/text2', formData, {
+        headers: {
+        'Content-Type': 'multipart/form-data'
+        }
+    });
+    
+      
+    setText2(response2.data.text);
+
        
   
 }
@@ -32,10 +42,10 @@ const HandleSubmit=async (event)=>{
 
 return(
 
-<form onSubmit={HandleSubmit}>
-    <label>Image to convert</label>
-    <input  type="file" accept="image/*" onChange={HandleChange}/>
-    <button type="submit">Submit</button>
+<form className="image-form" onSubmit={HandleSubmit}>
+    <label className="upload-label">Image To Convert</label>
+    <input className="file-input" type="file" accept="image/*" onChange={HandleChange}/>
+    <button className="submit-button" type="submit">Submit</button>
 </form>
 
 );
